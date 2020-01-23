@@ -1,0 +1,43 @@
+﻿@model TimeSheetManagement.ViewModels.ProjectViewModel
+
+@{
+    ViewData["Title"] = "CreateProject";
+    
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+@{ 
+    ViewBag.Name = Model.SharedData.WorkspaceName;
+    ViewBag.WorkspaceId = Model.SharedData.WorkspaceId;
+}
+    <div class="col-md-12">
+        <!-- Area Chart -->
+        <div class="">
+            <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Add Project</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="col-md-6">
+                        <form asp-action="CreateProject">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Name" class="control-label"></label>
+                                <input asp-for="@Model.Name" class="form-control" />
+                                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.Description" class="control-label"></label>
+                                <textarea asp-for="@Model.Description" class="form-control"></textarea>
+                                <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-success float-right" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

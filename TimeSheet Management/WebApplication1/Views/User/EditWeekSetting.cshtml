@@ -1,0 +1,58 @@
+﻿@model TimeSheetManagement.ViewModels.EditWeekSetting
+
+@{
+    ViewData["Title"] = "EditWeekSetting";
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <!-- Area Chart -->
+    <div class="">
+        <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Edit Week Setting</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="col-md-6">
+                    <form asp-action="EditWeekSetting">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @Html.ValidationMessage("CustomError", new { @class = "text-danger" })
+
+                        @{
+                            var listItems = new List<SelectListItem>();
+                            listItems.Add(new SelectListItem { Text = "Monday", Value = "Monday" });
+                            listItems.Add(new SelectListItem { Text = "Tuesday", Value = "Tuesday" });
+                            listItems.Add(new SelectListItem { Text = "Wednesday", Value = "Wednesday" });
+                            listItems.Add(new SelectListItem { Text = "Thursday", Value = "Thursday" });
+                            listItems.Add(new SelectListItem { Text = "Friday", Value = "Friday" });
+                            listItems.Add(new SelectListItem { Text = "Saturday", Value = "Saturday" });
+                            listItems.Add(new SelectListItem { Text = "Sunday", Value = "Sunday" });
+                        }
+                        <div class="form-group">
+                            <label asp-for="StartDay" class="control-label"></label>
+                            @Html.DropDownListFor(model => model.StartDay, listItems, "Select", new { @class = "form-control" })
+                            <span asp-validation-for="StartDay" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EndDay" class="control-label"></label>
+                            @Html.DropDownListFor(model => model.EndDay, listItems, "Select", new { @class = "form-control" })
+                            <span asp-validation-for="EndDay" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="StartDate" class="control-label"></label>
+                            <input asp-for="StartDate" class="form-control" />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-success float-right" />
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

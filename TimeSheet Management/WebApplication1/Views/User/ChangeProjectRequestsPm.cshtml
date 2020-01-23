@@ -1,0 +1,81 @@
+﻿@model  IEnumerable<TimeSheetManagement.ViewModels.RequestsListViewModel>
+@{
+    ViewData["Title"] = "ChangeProjectRequestsPm";
+    
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+    <div class="col-md-12">
+        <!-- Area Chart -->
+        <div class="">
+            <div class="card shadow mb-4 border-left-primary shadow h-100">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Requests: Change Project</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Project Name
+                                        </th>
+                                        <th>
+                                            Project Description
+                                        </th>
+                                        <th>
+                                            Sent By
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Any())
+                                    {
+
+                                        foreach (var item in Model)
+                                        {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProjectName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProjectDescription)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(x => item.Member)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        @if (ViewBag.CanChange)
+                                        {
+                                            <td>
+                                                <a class="btn btn-success" asp-action="ChangeProject" asp-controller="User" asp-route-id="@item.ProjectId" asp-route-id2="@item.RequestId">Change Project</a>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td><span class="label label-success pull-right">No Action Required</span></td>
+                                            
+                                        }
+                                        
+                                    </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\User\Documents\Visual Studio 2019\Projects\TimeSheet Management\WebApplication1\obj\Release\netcoreapp2.2\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\User\Documents\Visual Studio 2019\Projects\TimeSheet Management\WebApplication1\obj\Release\netcoreapp2.2\PubTmp\EFSQLScripts\WebApplication1.Data.ApplicationDbContext.sql" />
+</sitemanifest>

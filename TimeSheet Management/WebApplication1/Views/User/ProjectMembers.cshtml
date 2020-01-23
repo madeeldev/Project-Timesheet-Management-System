@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TimeSheetManagement.ViewModels.MembersList>
+@{
+    ViewData["Title"] = "ProjectMembers";
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <!-- Area Chart -->
+    <div class="">
+        <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Members</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Members Email
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MemberEmail)
+                                        </td>
+
+                                        <td class="float-right">
+                                            <a class="btn btn-outline-primary" asp-action="AcceptOrRejectTimesheet" asp-route-id="@item.IndividualUserId" asp-route-id2="@item.ProjectId">Timesheet</a>
+                                            <a onclick="return confirm('Are you sure you want to remove this member?');" asp-action="RemoveProjectMember" class="btn btn-outline-primary" asp-route-id="@item.ProjectAssignmentId">Remove</a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

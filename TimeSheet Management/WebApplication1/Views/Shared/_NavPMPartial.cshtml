@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hello @User.Identity.Name!</span>
+                    <img class="img-profile rounded-circle" src="~/img/1.jpg">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" asp-controller="User" asp-action="ProjectMangerProfile" asp-route-id="@User.Identity.Name">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" onclick="return confirm('Select Ok below if you are ready to end your current session');" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+}

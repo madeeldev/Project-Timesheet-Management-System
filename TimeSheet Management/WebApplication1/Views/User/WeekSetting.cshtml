@@ -1,0 +1,74 @@
+﻿@model TimeSheetManagement.ViewModels.ShowWeekSetting
+@{
+    ViewData["Title"] = "WeekSetting";
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+
+    <div class="col-md-12">
+        <!-- Area Chart -->
+        <div class="">
+            <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Weekly Setting</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.StartDate)
+                                            </th>
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.StartDay)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.EndDay)
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            @if (Model != null)
+                                            {
+                                                <td>
+                                                    @Html.DisplayFor(model => model.StartDate)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(model => model.StartDay)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(model => model.EndDay)
+                                                </td>
+                                                <td>
+                                                    <div style="float:right">
+                                                        <a asp-action="EditWeekSetting" asp-route-id="@Model.WeekSettingId">
+                                                            <i class="fas fa-edit fa-sm fa-fw mr-2 text-black-400">
+                                                                
+                                                            </i>
+                                                        </a>    
+                                                        <a asp-action="DeleteSetting" asp-route-id="@Model.WeekSettingId">
+                                                            <i class="fas fa-trash fa-sm fa-fw mr-2 text-black-400"></i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+                                            }
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

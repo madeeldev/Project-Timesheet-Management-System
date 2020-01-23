@@ -1,0 +1,44 @@
+﻿@model TimeSheetManagement.ViewModels.ChangeProjectViewModel
+@{
+    ViewData["Title"] = "ChangeProject";
+
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+<div class="col-md-12">
+    <!-- Area Chart -->
+    <div class="">
+        <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Change Project</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <form asp-action="ChangeProject">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            @Html.ValidationMessage("CustomError", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label asp-for="ProjectName" class="control-label"></label>
+                                <input asp-for="ProjectName" class="form-control" />
+                                <span asp-validation-for="ProjectName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <input asp-for="Description" class="form-control" />
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Change" class="btn btn-success float-right" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

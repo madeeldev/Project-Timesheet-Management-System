@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TimeSheetManagement.ViewModels.AcceptOrRejectTimesheetViewModel>
+@{
+    ViewData["Title"] = "AcceptOrRejectTimesheet";
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+
+
+    <div class="col-md-12">
+        @using (Html.BeginForm("RejectTimesheet", "User", new { id = @ViewBag.IndividualId, id2 = @ViewBag.ProjectId }))
+        {
+            <a onclick="return confirm('Are you sure you want to reject this timesheet?');" style="float: right;" asp-action="RejectTimesheet" class="btn btn-danger" asp-route-id="@ViewBag.IndividualId" asp-route-id2="@ViewBag.ProjectId">Reject</a>
+        }
+        @using (Html.BeginForm("AcceptTimesheet", "User", new { id = @ViewBag.IndividualId, id2 = @ViewBag.ProjectId }))
+         {
+            <a onclick="return confirm('Are you sure you want to accept this timesheet?');" style="float:right;margin-right:5px" class="btn btn-success" asp-action="AcceptTimesheet" asp-route-id="@ViewBag.IndividualId" asp-route-id2="@ViewBag.ProjectId">Accept</a>
+        }
+    </div>
+
+<div class="col-md-12">
+    <p>Week Start Date: <b>@ViewBag.WeekStartDate</b></p>
+    <div class="">
+        <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Timesheet</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>Development</th>
+                                    <th>Learning</th>
+                                    <th>Meeting</th>
+                                    <th>Marketing</th>
+                                    <th>Documentation</th>
+                                    <th>
+                                        Total Hours
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.WeekStartDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DevelopmentHours)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LearningHours)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MeetingHours)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MarketingHours)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DocumentationHours)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalHours)
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model  TimeSheetManagement.ViewModels.ProfileViewModel
+@{
+    ViewData["Title"] = "PM Profile";
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+<div class="col-xl-8 col-lg-7">
+    <!-- Area Chart -->
+    <div class="">
+        <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Your Profile</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-sm" style="text-align:right;">
+                                Name :
+                                <hr style="border:none;">
+                                Email :
+
+
+                            </div>
+                            <div class="col-sm" style="border-left: 1px solid pink">
+                                <b> @Model.FullName </b>
+                                <hr style="border:none;">
+                                <b>@Model.Email</b>
+                            </div>
+                            <div class="col-sm">
+                            </div>
+
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

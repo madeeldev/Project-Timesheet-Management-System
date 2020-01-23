@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TimeSheetManagement.ViewModels.DailyTimesheetViewModel>
+@{
+    ViewData["Title"] = "DailyTimesheets";
+    Layout = "~/Views/Layouts/_IndLayout.cshtml";
+}
+
+    <div class="col-md-12">
+        <!-- Area Chart -->
+        <div class="">
+            <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Timesheets</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Project Name
+                                        </th>
+                                        <th>Project Description</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.ProjectName</td>
+                                            <td>@item.ProjectDescription</td>
+                                            <td>
+                                                <a style="float:right" asp-action="FillTimeSheet" class="btn btn-outline-primary" asp-route-id="@item.ProjectId">Fill</a>
+                                                <a style="float:right; margin-right:5px" asp-action="ShowTimeSheet" class="btn btn-outline-primary" asp-route-id="@item.ProjectId">Timesheet</a>
+                                                <a style="float:right; margin-right:5px" asp-action="ShowTimeSheetViewOnly" class="btn btn-outline-primary" asp-route-id="@item.ProjectId">Status</a>
+                                                <a onclick="return confirm('Are you sure you wanna request to change this project?');" style="float:right; margin-right:5px" asp-action="RequestToChangeProject" class="btn btn-outline-primary" asp-route-id="@item.ProjectId">Request</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

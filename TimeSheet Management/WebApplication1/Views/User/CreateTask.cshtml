@@ -1,0 +1,45 @@
+﻿@model TimeSheetManagement.ViewModels.CreateTaskViewModel
+
+@{
+    ViewData["Title"] = "CreateTask";
+    
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+    <div class="col-md-12">
+        <!-- Area Chart -->
+        <div class="">
+            <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Add Task</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="col-md-6">
+                        <form asp-action="CreateTask">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            @Html.ValidationMessage("CustomError", new { @class = "text-danger" })
+                            @{
+                                var listItems = new List<SelectListItem>();
+                                listItems.Add(new SelectListItem { Text = "Development", Value = "Development" });
+                                listItems.Add(new SelectListItem { Text = "Learning", Value = "Learning" });
+                                listItems.Add(new SelectListItem { Text = "Meeting", Value = "Meeting" });
+                                listItems.Add(new SelectListItem { Text = "Marketing", Value = "Marketing" });
+                                listItems.Add(new SelectListItem { Text = "Documentation", Value = "Documentation" });
+
+                            }
+                            <div class="form-group">
+                                <label asp-for="TaskName" class="control-label"></label>
+                                @Html.DropDownListFor(model => model.TaskName, listItems as IEnumerable<SelectListItem>, "Select", new { @class = "form-control" })
+                                <span asp-validation-for="TaskName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-success float-right" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

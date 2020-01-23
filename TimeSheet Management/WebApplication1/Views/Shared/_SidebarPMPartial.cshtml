@@ -1,0 +1,88 @@
+
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="User" asp-action="Workspace">
+            <i class="fa fa-home fa-fw"></i>
+            <div class="sidebar-brand-text mx-2" style="font-size:smaller">@ViewBag.Name</div>
+
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" asp-controller="User" asp-action="Workspace">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+
+        <li class="nav-item">
+            <a class="nav-link" asp-action="CreateWeekSetting" asp-route-id="@ViewBag.WorkspaceId">
+
+                <i class="fa fa-cog"></i>
+                <span>Add Week Setting</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="WeekSetting" asp-route-id="@ViewBag.WorkspaceId">
+
+                <i class="fa fa-cog"></i>
+                <span>Week Setting</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Projects" asp-route-id="@ViewBag.WorkspaceId">
+                <i class="fa fa-project-diagram"></i>
+                <span>Project List</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-action="CreateProject" asp-route-id="@ViewBag.WorkspaceId">
+                <i class="fa fa-project-diagram"></i>
+                <span>Add Projects</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-action="WorkspaceTasks" asp-route-id="@ViewBag.WorkspaceId">
+                <i class="fa fa-tasks"></i>
+                <span>Task List</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="CreateTask" asp-route-id="@ViewBag.WorkspaceId">
+                <i class="fa fa-tasks"></i>
+                <span>Add Task</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="User" asp-action="ChangeProjectRequestsPm">
+                <i class="fa fa-user-cog"></i>
+                <span>Requests</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>

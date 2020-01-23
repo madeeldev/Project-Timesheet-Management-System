@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqFmVDe0CYE+IM5WdOL8QtQAAAAACAAAAAAAQZgAAAAEAACAAAAD97uon2EIACt2mWVl65AcnBp50cjhvi0phuQwwmwfapAAAAAAOgAAAAAIAACAAAACB1547759GwIuGxHzOsqPInYGqIgZYnba+oq7TVJ5LNYAAAADdOF0kSOZqiQqCBL4/W6qq0/x33FWFsleWPGs2WfN1IAXszHvkf8AQWlOYw0i7T7pBL3qhJ2/S6PNZj4oY80hizPjE6Ay4Zv3HuYHkyFmTfrkf2w70VXMhOxpTZwawXK57+B6XF5wV5EB1whz++rAOzNaVVroktc/mD9+9uZst90AAAABb55Pui6uv4/ylBypLfZSjV9GXl/mErF6ggkuIlSI3hIKeoU9M8hqN5lnYeehAP6NhrQ3iNieCzfrG2S6kzocX</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:adeeldbserver.database.windows.net,1433%3bInitial Catalog=TimeSheetManagement_db%3bUser Id=sqladmin%40adeeldbserver%3bPassword=Adeel_123</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebApplication1.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:adeeldbserver.database.windows.net,1433%3bInitial Catalog=TimeSheetManagement_db%3bUser Id=sqladmin%40adeeldbserver%3bPassword=Adeel_123</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

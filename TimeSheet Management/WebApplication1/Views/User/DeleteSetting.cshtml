@@ -1,0 +1,49 @@
+﻿@model TimeSheetManagement.Models.WeekSetting
+
+@{
+    ViewData["Title"] = "DeleteSetting";
+    Layout = "~/Views/Layouts/_PMLayout.cshtml";
+}
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="col-md-12">
+    <!-- Area Chart -->
+    <div class="">
+        <div class="card shadow mb-4 border-left-primary shadow h-100 py-2">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Delete Week Setting</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="col-md-6">
+                    <dl>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.StartDay)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.StartDay)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.EndDay)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.EndDay)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.StartDate)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.StartDate)
+                        </dd>
+                    </dl>
+
+                    <form asp-action="DeleteSettingConfirmed" asp-route-id="@Model.WeekSettingId">
+                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                        <a asp-action="WeekSetting" asp-route-id="@Model.WorkspaceId">Back to Week Setting</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

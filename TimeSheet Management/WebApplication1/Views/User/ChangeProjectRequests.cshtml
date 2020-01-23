@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<TimeSheetManagement.ViewModels.RequestsListViewModel>
+@{
+    ViewData["Title"] = "ChangeProjectRequests";
+}
+
+<h1>Requests List</h1>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Project Name
+                </th>
+                <th>
+                    Project Description
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProjectName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProjectDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+</table>
+
+
