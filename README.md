@@ -1,1 +1,1 @@
-A system to manage project Teams and their tasks. Wanna check out? visit this given link:- https://ptsms.azurewebsites.net/
+Web Application system to manage teams, projects, and tasks. Wanna check out? visit this given link:- https://ptsms.azurewebsites.net/
